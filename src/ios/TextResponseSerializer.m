@@ -51,6 +51,10 @@ static BOOL AFErrorOrUnderlyingErrorHasCodeInDomain(NSError *error, NSInteger co
     }
 
     NSString *responseString = [[NSString alloc] initWithData:data encoding:stringEncoding];
+	
+	if(!responseString){
+		responseString = [[NSString alloc] initWithData:data encoding:NSISOLatin1StringEncoding];
+	}
 
     return responseString;
 }
